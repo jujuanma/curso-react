@@ -1,42 +1,40 @@
 import { useEffect, useState } from 'react'
 import './itemListContainer.css'
-import ItemCount from "../itemCount/itemCount"
-import { getProducts } from '../item/item'
+import ItemList from '../itemList/itemList'
+import { getProducts } from '../../asyncmock'
+import { SpinnerCircular } from 'spinners-react';
 
+const ItemListContainer = () => {
+    const [products, setProducts] = useState()
+    const [loading, setLoading] = useState(true)
 
+ 
 
-
-const ItemListContainer = ({greeting = 'Cantidad que lleva'})=> {
-    const [products, setProducts] = useState([])
-
-    
     useEffect(() => {
-        getProducts().then(products => {
-            console.log(products)
-            setProducts(products)
+        getProducts().then(item => {
+            setProducts(item)
+        }).catch(err  => {
+            console.log(err)
+        }).finally(() => {
+            setLoading(false)
         })
+
+
+        return (() => {
+            setProducts()
+        
+        })          
     }, [])
     
-    const handleOnAdd = (quantity) => {
-        console.log(`Se agregaron ${quantity} productos`)
-    }
-
-    console.log(products)
-
     return (
-        <div className="ItemListContainer">
-            <h1>{greeting}</h1>
-            <ItemCount stock={10} initial={2} onAdd={handleOnAdd}/>
-            <ul className='ulProductos'>
-                {products.map(product => {
-                    return (
-                        <div>
-                    <li key={product.id}>{product.name}</li>
-                    </div>
-                        )
-                })}
-                
-            </ul>
+        <div onClick={() => console.log('hice click en itemListContainer')} className="ItemListContainer">
+            {
+                loading ? 
+                <SpinnerCircular /> :  
+                products.length ? 
+                    <ItemList products={products}/> : 
+                    <h1>No se encontraron productos!</h1>
+            }
         </div>
     )    
     
