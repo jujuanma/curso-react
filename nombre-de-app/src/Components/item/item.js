@@ -5,7 +5,7 @@ const Item = ({product}) => {
 
     const handleClick = (e) => {
         e.stopPropagation()
-        console.log('Hice click en el boton')
+        console.log('Detalle de producto')
     }
    
     return (
@@ -24,8 +24,12 @@ const Item = ({product}) => {
                 </p>
             </section>           
             <footer className='ItemFooter'>
-                <Link to={`/detail/${product.id}`}>Ver detalle</Link>
-                <button onClick={handleClick}>Boton</button>
+                <div >
+                <button className='myButton' onClick={handleClick}>
+                 <Link to={`/detail/${product.id}`}>Ver detalle</Link>
+                </button>
+                </div>
+                
             </footer>
         </article>
     )

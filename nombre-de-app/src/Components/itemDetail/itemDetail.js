@@ -46,7 +46,7 @@ const ButtonCount = ({ onConfirm, stock, initial = 0 }) => {
 
 const ItemDetail = ({name, img, stock, category, description, price, inputType="button"}) => {
     const [option, setOption] = useState()
-    const options = [{ value: 1, text: 'Azul'}, { value:2, text:'Rojo'}]
+    const options = [{ value: 1, text: 'Recoger en tienda'}, { value:2, text:'Envío'}]
 
     const optionSelected = (value) => {
         console.log(value)
@@ -78,13 +78,13 @@ const ItemDetail = ({name, img, stock, category, description, price, inputType="
                     Descripción: {description}
                 </p>
                 <p className="Info">
-                    Precio: {price}
+                    Precio: ${price}
                 </p>
             </section>           
             <footer className='ItemFooter'>
                 <Count onConfirm={onConfirm} stock={stock} inicial={1}/>
             </footer>
-            <h3>El valor del select es {option}</h3>
+            <h3>Usted a elegido la opción {option}</h3>
         </article>
     )
 }

@@ -4,7 +4,7 @@
   justify-content: space-around;
   align-items: center;
   height: 60px;
-  background: wheat;
+  background: cadetblue;
 }
 
 .Categories {
@@ -21,7 +21,7 @@
   width: auto;
   padding: 12px;
   font-size: 8px;
-  background: #8C30F5;
+  background: steelblue;
   border-radius: 8px;
   flex: none;
   display: flex;
@@ -45,8 +45,8 @@
   margin: 0 50px;
   width: auto;
   padding: 12px;
-  font-size: 8px;
-  background: red;
+  font-size: 10px;
+  background: turquoise;
   border-radius: 8px;
   flex: none;
   display: flex;
@@ -56,7 +56,7 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: #FFFFFF;
+  color: black ;
   border: none;
   border-style: none;
   cursor: pointer;
@@ -64,7 +64,7 @@
 }
 
 .NavLink {
-  color :rgb(255, 0, 0)
+  color :darkblue
 }
 
 .Logo{
